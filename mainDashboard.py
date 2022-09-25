@@ -1,8 +1,6 @@
 from distutils.util import byte_compile
 from email.mime import image
-from msilib.schema import File
 from tkinter import Image
-from tkinter.tix import IMAGE
 from webbrowser import BackgroundBrowser
 import streamlit as st
 
@@ -344,11 +342,3 @@ elif decision >= 40 and decision <50:
     st.header("PPKM Level 4")
 else:
     st.header("LOCKDOWN")
-
-with open("Network-14-512.png","rb") as file:
-    btn = st.download_button(
-        label = "Download Image",
-        data = file,
-        file_name = "images.png",
-        mime = "image/png"
-    )
