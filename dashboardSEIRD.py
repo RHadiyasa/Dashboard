@@ -1,10 +1,11 @@
-from distutils.util import byte_compile
-from email.mime import image
-from msilib.schema import File
-from tkinter import Image
-from tkinter.tix import IMAGE
-from webbrowser import BackgroundBrowser
+import numpy as np
+import skfuzzy as fuzz
+import matplotlib.pyplot as plt
 import streamlit as st
+import pandas as pd
+from scipy.integrate import odeint
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 st.title("DASHBOARD DECISION SUPPORT MODEL USING SEIRD METHOD")
 st.subheader("Data Default adalah data lapangan Provinsi DKI Jakarta")
@@ -13,6 +14,7 @@ col1, col2, col3 = st.columns(3)
 
 effective_contact_rate = (0.1 * 10)
 recovery_rate = 1/10
+
 
 #@markdown Waktu Penerapan Protokol Kesehatan
 Protokol_Kesehatan = st.sidebar.slider("Waktu Dimulai Protokol Kesehatan Hari ke:",min_value=0, max_value=90, value=15, step=1)
@@ -33,12 +35,6 @@ n = st.sidebar.number_input("Enter Active Cases: ", min_value=1, max_value=27000
 R0 = st.sidebar.slider(
     "Tentukan Tingkat Transmission Rate (R0)",min_value=0.1, max_value=50.0, value=2.5, step=0.1
 )
-
-import numpy as np
-import pandas as pd
-from scipy.integrate import odeint
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # initial number of infected and recovered individuals
 e_initial = n/N
@@ -179,10 +175,6 @@ hospital = np.arange(0, 101, 1)
 vaccine = np.arange(0, 101, 1)
 seird = np.arange(0, 101, 1)
 DSM = np.arange(0, 61, 1)
-
-import numpy as np
-import skfuzzy as fuzz
-import matplotlib.pyplot as plt
 
 # Generate fuzzy membership functions
 hospital_lo = fuzz.dsigmf(hospital, -20, 0.25, 40, 0.25)
