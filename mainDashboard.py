@@ -1,6 +1,8 @@
 from distutils.util import byte_compile
 from email.mime import image
+from msilib.schema import File
 from tkinter import Image
+from tkinter.tix import IMAGE
 from webbrowser import BackgroundBrowser
 import streamlit as st
 
