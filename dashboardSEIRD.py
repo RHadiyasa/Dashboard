@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import pandas as pd
 from scipy.integrate import odeint
-import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.title("DASHBOARD DECISION SUPPORT MODEL USING SEIRD METHOD")
